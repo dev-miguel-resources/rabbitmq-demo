@@ -8,9 +8,9 @@ const args = process.argv.slice(2)
   // Crear un canal, que es una especie de "tunnel" para enviar o recibir mensajes dentro de la conexión.
   const channel = await connection.createChannel()
 
-  const exchangeName = 'exchange-direct'
+  const exchangeName = 'exchange-topic'
 
-  await channel.assertExchange(exchangeName, 'direct', { durable: true })
+  await channel.assertExchange(exchangeName, 'topic', { durable: true })
 
   const message = args.length > 0 ? args[0] : 'message default'
 
